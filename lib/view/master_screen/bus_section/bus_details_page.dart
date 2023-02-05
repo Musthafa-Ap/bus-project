@@ -5,11 +5,15 @@ class BusDetailsPage extends StatelessWidget {
   final String busName;
   final int seatCount;
   final String type;
+  final String driver;
+  final String license;
   const BusDetailsPage(
       {super.key,
       required this.busName,
       required this.seatCount,
-      required this.type});
+      required this.type,
+      required this.driver,
+      required this.license});
 
   @override
   Widget build(BuildContext context) {
@@ -37,23 +41,23 @@ class BusDetailsPage extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 25,
                     ),
                     Text(
-                      "Rohith sharma",
-                      style: TextStyle(
+                      driver,
+                      style: const TextStyle(
                           fontSize: 27,
                           fontWeight: FontWeight.w700,
                           color: Colors.white),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "License No : PJ515196161655",
-                      style: TextStyle(
+                      "License No : $license",
+                      style: const TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
                           color: Colors.white),
@@ -69,7 +73,6 @@ class BusDetailsPage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              alignment: Alignment.centerRight,
               margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
               padding: const EdgeInsets.only(left: 10, right: 10),
               decoration: BoxDecoration(

@@ -7,10 +7,38 @@ import 'package:flutter/material.dart';
 class MasterScreen extends StatelessWidget {
   MasterScreen({super.key});
   final List<Map<String, dynamic>> busList = [
-    {"id": 1, "name": "KSRTC", "seat_count": 20, "type": "2*2"},
-    {"id": 2, "name": "Volvo", "seat_count": 16, "type": "1*3"},
-    {"id": 3, "name": "IRST", "seat_count": 32, "type": "2*2"},
-    {"id": 4, "name": "Sana", "seat_count": 40, "type": "1*3"},
+    {
+      "id": 1,
+      "name": "KSRTC",
+      "seat_count": 24,
+      "type": "2*2",
+      "driver": "Vishnu",
+      "license": "ASG34242424"
+    },
+    {
+      "id": 2,
+      "name": "Volvo",
+      "seat_count": 16,
+      "type": "1*3",
+      "driver": "Rahul",
+      "license": "HRTE34344344"
+    },
+    {
+      "id": 3,
+      "name": "IRST",
+      "seat_count": 32,
+      "type": "2*2",
+      "driver": "Amal",
+      "license": "GFASDF43433"
+    },
+    {
+      "id": 4,
+      "name": "Sana",
+      "seat_count": 40,
+      "type": "1*3",
+      "driver": "Arun",
+      "license": "FDSHGAD4343434"
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,6 +79,8 @@ class MasterScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => BusDetailsPage(
+                              driver: data['driver'],
+                              license: data['license'],
                               type: data['type'],
                               busName: data["name"],
                               seatCount: data["seat_count"],
