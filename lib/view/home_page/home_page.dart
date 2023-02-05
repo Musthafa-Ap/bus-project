@@ -1,6 +1,6 @@
 import 'package:bus_project/view/home_page/common_widgets/common_button.dart';
-import 'package:bus_project/view/login_page.dart';
-import 'package:bus_project/view/master_screen/master_screen.dart';
+import 'package:bus_project/view/intro_screen/login_page.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

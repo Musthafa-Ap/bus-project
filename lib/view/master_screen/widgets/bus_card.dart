@@ -1,9 +1,15 @@
+import 'package:bus_project/view/master_screen/bus_section/bus_details_page.dart';
 import 'package:flutter/material.dart';
 
 class CommonCard extends StatelessWidget {
   final String title;
   final String cardType;
-  CommonCard({super.key, required this.cardType, required this.title});
+  void Function() onTap;
+  CommonCard(
+      {super.key,
+      required this.cardType,
+      required this.title,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -64,20 +70,25 @@ class CommonCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              height: size.height * .0369,
-              width: size.width * .186,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: const Color(0xffFC153B),
-              ),
-              child: Center(
-                child: Text(
-                  buttonTitle,
-                  style: const TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white),
+            InkWell(
+              onTap: () {
+                onTap();
+              },
+              child: Container(
+                height: size.height * .0369,
+                width: size.width * .186,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: const Color(0xffFC153B),
+                ),
+                child: Center(
+                  child: Text(
+                    buttonTitle,
+                    style: const TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             )

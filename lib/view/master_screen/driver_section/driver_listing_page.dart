@@ -37,6 +37,7 @@ class DriverListingPage extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return CommonCard(
+                  onTap: () {},
                   cardType: 'driver',
                   title: "Demo",
                 );

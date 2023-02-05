@@ -1,6 +1,6 @@
 import 'package:bus_project/provider/login_provider.dart';
 import 'package:bus_project/view/home_page/home_page.dart';
-import 'package:bus_project/view/splash_screen.dart';
+import 'package:bus_project/view/intro_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

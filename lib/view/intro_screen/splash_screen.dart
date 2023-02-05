@@ -2,7 +2,7 @@ import 'package:bus_project/view/home_page/home_page.dart';
 import 'package:bus_project/view/master_screen/master_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

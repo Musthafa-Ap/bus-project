@@ -1,3 +1,4 @@
+import 'package:bus_project/view/master_screen/bus_section/bus_details_page.dart';
 import 'package:bus_project/view/master_screen/widgets/app_bar_section.dart';
 import 'package:bus_project/view/master_screen/widgets/bus_card.dart';
 import 'package:bus_project/view/master_screen/widgets/top_section.dart';
@@ -7,8 +8,9 @@ class MasterScreen extends StatelessWidget {
   MasterScreen({super.key});
   final List<Map<String, dynamic>> busList = [
     {"id": 1, "name": "KSRTC", "seat_count": 20, "type": "2*2"},
-    {"id": 2, "name": "Volvo", "seat_count": 15, "type": "1*3"},
-    {"id": 3, "name": "IRST", "seat_count": 25, "type": "2*2"}
+    {"id": 2, "name": "Volvo", "seat_count": 16, "type": "1*3"},
+    {"id": 3, "name": "IRST", "seat_count": 32, "type": "2*2"},
+    {"id": 4, "name": "Sana", "seat_count": 40, "type": "1*3"},
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,14 @@ class MasterScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final data = busList[index];
                 return CommonCard(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => BusDetailsPage(
+                              type: data['type'],
+                              busName: data["name"],
+                              seatCount: data["seat_count"],
+                            )));
+                  },
                   cardType: "bus",
                   title: data['name'],
                 );
