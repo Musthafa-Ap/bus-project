@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   height: size.height * .327,
                   decoration: const BoxDecoration(
-                      color: Colors.black,
+                      color: Color(0xff2B2B2B),
                       image: DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage(

@@ -1,5 +1,6 @@
 import 'package:bus_project/view/home_page/common_widgets/common_button.dart';
 import 'package:bus_project/view/login_page.dart';
+import 'package:bus_project/view/master_screen/master_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,8 +23,8 @@ class HomePage extends StatelessWidget {
             CommonButton(
               title: "Get Started",
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const LoginPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MasterScreen()));
               },
               backgroundColor: Colors.white,
               titleColor: Colors.red,
