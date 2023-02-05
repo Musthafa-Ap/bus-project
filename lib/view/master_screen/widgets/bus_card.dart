@@ -2,6 +2,7 @@ import 'package:bus_project/view/master_screen/bus_section/bus_details_page.dart
 import 'package:flutter/material.dart';
 
 class CommonCard extends StatelessWidget {
+  final String? subTitle;
   final String title;
   final String cardType;
   void Function() onTap;
@@ -9,7 +10,8 @@ class CommonCard extends StatelessWidget {
       {super.key,
       required this.cardType,
       required this.title,
-      required this.onTap});
+      required this.onTap,
+      this.subTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +62,9 @@ class CommonCard extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text(
-                    "Swift Scania P-series",
-                    style: TextStyle(
+                  Text(
+                    subTitle ?? "Swift Scania P-series",
+                    style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                         color: Color(0xff474747)),

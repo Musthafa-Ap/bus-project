@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CommonTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -6,18 +7,21 @@ class CommonTextField extends StatelessWidget {
   final bool isObscure;
   final String hintText;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   const CommonTextField(
       {super.key,
       this.keyboardType,
       required this.hintText,
       this.isObscure = false,
       this.controller,
+      this.inputFormatters,
       this.validator});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return TextFormField(
+      inputFormatters: inputFormatters,
       keyboardType: keyboardType,
       controller: controller,
       obscureText: isObscure,

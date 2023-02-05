@@ -1,3 +1,4 @@
+import 'package:bus_project/provider/driver_provider.dart';
 import 'package:bus_project/provider/login_provider.dart';
 import 'package:bus_project/view/home_page/home_page.dart';
 import 'package:bus_project/view/intro_screen/splash_screen.dart';
@@ -10,6 +11,9 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (_) => LoginProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => DriverProvider(),
       )
     ],
     child: const MyApp(),

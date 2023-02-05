@@ -1,6 +1,8 @@
+import 'package:bus_project/provider/driver_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../driver_section/driver_listing_page.dart';
@@ -57,6 +59,8 @@ class TopRowSection extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: () async {
+              Provider.of<DriverProvider>(context, listen: false)
+                  .getDriverList();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const DriverListingPage()));
             },
