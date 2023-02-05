@@ -25,6 +25,14 @@ class CommonTextField extends StatelessWidget {
       cursorColor: Colors.black,
       decoration: InputDecoration(
           hintText: hintText,
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),
             borderRadius: BorderRadius.circular(10.0),

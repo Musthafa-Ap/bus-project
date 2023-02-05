@@ -24,7 +24,6 @@ class MasterScreen extends StatelessWidget {
                   "21 Buses Found",
                   style: TextStyle(fontSize: 13, color: Color(0xff6B6B6B)),
                 ),
-                // SizedBox(height: size.height * 0.027),
               ],
             ),
           ),

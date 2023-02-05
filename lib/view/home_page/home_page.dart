@@ -23,8 +23,8 @@ class HomePage extends StatelessWidget {
             CommonButton(
               title: "Get Started",
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MasterScreen()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => LoginPage()));
               },
               backgroundColor: Colors.white,
               titleColor: Colors.red,

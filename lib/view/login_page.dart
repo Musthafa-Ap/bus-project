@@ -1,12 +1,16 @@
+import 'dart:math';
+
+import 'package:bus_project/provider/login_provider.dart';
 import 'package:bus_project/view/home_page/common_widgets/common_button.dart';
 import 'package:bus_project/view/home_page/common_widgets/common_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  LoginPage({super.key});
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final _fromKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -53,24 +57,59 @@ class LoginPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 25, right: 25),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: size.height * .0517,
-                  ),
-                  const CommonTextField(hintText: "Enter Username"),
-                  SizedBox(
-                    height: size.height * .0209,
-                  ),
-                  const CommonTextField(
-                    hintText: "Enter Password",
-                    isObscure: true,
-                  ),
-                  SizedBox(
-                    height: size.height * .328,
-                  ),
-                  CommonButton(title: 'Login', onTap: () {})
-                ],
+              child: Form(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                key: _fromKey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * .0517,
+                    ),
+                    CommonTextField(
+                      controller: _usernameController,
+                      hintText: "Enter Username",
+                      validator: (value) =>
+                          value!.isEmpty ? "This field is required" : null,
+                    ),
+                    SizedBox(
+                      height: size.height * .0209,
+                    ),
+                    CommonTextField(
+                      controller: _passwordController,
+                      hintText: "Enter Password",
+                      isObscure: true,
+                      validator: (value) =>
+                          value!.isEmpty ? "This field is required" : null,
+                    ),
+                    SizedBox(
+                      height: size.height * .3,
+                    ),
+                    Consumer<LoginProvider>(
+                      builder: (context, provider, child) {
+                        return provider.isLoading == true
+                            ? const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            : CommonButton(
+                                title: 'Login',
+                                onTap: provider.isLoading == false
+                                    ? () {
+                                        if (_fromKey.currentState!.validate()) {
+                                          provider.NormalLogin(
+                                              username:
+                                                  _usernameController.text,
+                                              password:
+                                                  _passwordController.text,
+                                              context: context);
+                                        }
+                                      }
+                                    : () {
+                                        print("loading");
+                                      });
+                      },
+                    )
+                  ],
+                ),
               ),
             )
           ],
