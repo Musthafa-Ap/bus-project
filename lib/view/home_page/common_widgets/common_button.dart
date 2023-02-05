@@ -21,18 +21,15 @@ class CommonButton extends StatelessWidget {
       onTap: () {
         onTap();
       },
-      child: Padding(
-        padding: EdgeInsets.all(size.width * .0666),
-        child: Container(
-          height: size.height * .0714,
-          decoration: BoxDecoration(
-              color: backgroundColor, borderRadius: BorderRadius.circular(10)),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500, fontSize: 20, color: titleColor),
-            ),
+      child: Container(
+        height: size.height * .0714,
+        decoration: BoxDecoration(
+            color: backgroundColor, borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 20, color: titleColor),
           ),
         ),
       ),

@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffFC153B),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(25),
         child: Column(
           children: [
             const Spacer(),
