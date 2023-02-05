@@ -32,7 +32,7 @@ Future<void> gotoNextPage(context) async {
   await Future.delayed(const Duration(seconds: 2));
   isLoggedIn
       ? Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const MasterScreen()))
+          MaterialPageRoute(builder: (context) => MasterScreen()))
       : Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const HomePage()));
 }

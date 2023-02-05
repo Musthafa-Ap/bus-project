@@ -4,8 +4,12 @@ import 'package:bus_project/view/master_screen/widgets/top_section.dart';
 import 'package:flutter/material.dart';
 
 class MasterScreen extends StatelessWidget {
-  const MasterScreen({super.key});
-
+  MasterScreen({super.key});
+  final List<Map<String, dynamic>> busList = [
+    {"id": 1, "name": "KSRTC", "seat_count": 20, "type": "2*2"},
+    {"id": 2, "name": "Volvo", "seat_count": 15, "type": "1*3"},
+    {"id": 3, "name": "IRST", "seat_count": 25, "type": "2*2"}
+  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -20,16 +24,17 @@ class MasterScreen extends StatelessWidget {
               children: [
                 const TopRowSection(),
                 SizedBox(height: size.height * 0.027),
-                const Text(
-                  "21 Buses Found",
-                  style: TextStyle(fontSize: 13, color: Color(0xff6B6B6B)),
+                Text(
+                  "${busList.length} Buses Found",
+                  style:
+                      const TextStyle(fontSize: 13, color: Color(0xff6B6B6B)),
                 ),
               ],
             ),
           ),
           Expanded(
             child: ListView.separated(
-              itemCount: 3,
+              itemCount: busList.length,
               separatorBuilder: (context, index) {
                 return SizedBox(
                   height: size.height * .016,
@@ -39,8 +44,10 @@ class MasterScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
+                final data = busList[index];
                 return CommonCard(
                   cardType: "bus",
+                  title: data['name'],
                 );
               },
             ),

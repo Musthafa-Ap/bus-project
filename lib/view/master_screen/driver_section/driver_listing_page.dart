@@ -20,7 +20,7 @@ class DriverListingPage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 18, right: 18, top: 18),
               child: Text(
-                "21 Buses Found",
+                "21 Drivers Found",
                 style: TextStyle(fontSize: 13, color: Color(0xff6B6B6B)),
               ),
             ),
@@ -36,8 +36,9 @@ class DriverListingPage extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return const CommonCard(
+                return CommonCard(
                   cardType: 'driver',
+                  title: "Demo",
                 );
               },
             )),

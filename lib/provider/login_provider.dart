@@ -35,7 +35,7 @@ class LoginProvider with ChangeNotifier {
           backgroundColor: Colors.green,
         ));
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const MasterScreen()),
+          MaterialPageRoute(builder: (context) => MasterScreen()),
           (route) => false,
         );
       } else {

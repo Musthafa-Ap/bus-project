@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CommonCard extends StatelessWidget {
+  final String title;
   final String cardType;
-  const CommonCard({super.key, required this.cardType});
+  CommonCard({super.key, required this.cardType, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +43,18 @@ class CommonCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    "KSRTC",
-                    style: TextStyle(
+                    title,
+                    style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                         color: Color(0xff474747)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
-                  Text(
+                  const Text(
                     "Swift Scania P-series",
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
@@ -73,7 +74,7 @@ class CommonCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   buttonTitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w400,
                       color: Colors.white),
