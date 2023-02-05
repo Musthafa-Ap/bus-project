@@ -1,5 +1,6 @@
 import 'package:bus_project/view/home_page/common_widgets/common_app_bar.dart';
 import 'package:bus_project/view/home_page/common_widgets/common_button.dart';
+import 'package:bus_project/view/master_screen/driver_section/add_driver_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bus_card.dart';
@@ -42,7 +43,12 @@ class DriverListingPage extends StatelessWidget {
             )),
             Padding(
               padding: const EdgeInsets.all(18),
-              child: CommonButton(title: "Add Driver", onTap: () {}),
+              child: CommonButton(
+                  title: "Add Driver",
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const AddDriverPage()));
+                  }),
             )
           ],
         ),
