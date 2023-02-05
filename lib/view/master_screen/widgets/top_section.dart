@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../driver_section/driver_listing_page.dart';
+
 class TopRowSection extends StatelessWidget {
   const TopRowSection({super.key});
 
@@ -52,42 +54,48 @@ class TopRowSection extends StatelessWidget {
           width: 18,
         ),
         Expanded(
-          child: Stack(
-            children: [
-              Container(
-                height: size.height * .21,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff2B2B2B),
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const DriverListingPage()));
+            },
+            child: Stack(
+              children: [
+                Container(
+                  height: size.height * .21,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xff2B2B2B),
+                  ),
                 ),
-              ),
-              const Positioned(
-                left: 18,
-                top: 8,
-                child: Text(
-                  "Driver",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w700),
+                const Positioned(
+                  left: 18,
+                  top: 8,
+                  child: Text(
+                    "Driver",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
-              ),
-              const Positioned(
-                left: 18,
-                top: 40,
-                child: Text(
-                  "Manage your Driver",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400),
+                const Positioned(
+                  left: 18,
+                  top: 40,
+                  child: Text(
+                    "Manage your Driver",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400),
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Image.asset("assets/images/person.png"))
-            ],
+                Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Image.asset("assets/images/person.png"))
+              ],
+            ),
           ),
         )
       ],

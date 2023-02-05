@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class BusCard extends StatelessWidget {
-  const BusCard({super.key});
+class CommonCard extends StatelessWidget {
+  final String cardType;
+  const CommonCard({super.key, required this.cardType});
 
   @override
   Widget build(BuildContext context) {
+    String image = "assets/images/bus2.png";
+    String buttonTitle = "Manage";
+    switch (cardType) {
+      case 'bus':
+        image = "assets/images/bus2.png";
+        buttonTitle = "Manage";
+        break;
+      case 'driver':
+        image = "assets/images/woman.png";
+        buttonTitle = "Delete";
+        break;
+    }
+
     final size = MediaQuery.of(context).size;
     return Container(
         height: size.height * .0911,
@@ -16,13 +28,12 @@ class BusCard extends StatelessWidget {
           children: [
             Container(
               width: size.width * .210,
-              decoration: const BoxDecoration(
-                  color: Color(0xffC1C1C1),
-                  borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                  color: const Color(0xffC1C1C1),
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
                       bottomLeft: Radius.circular(10)),
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/bus2.png"))),
+                  image: DecorationImage(image: AssetImage(image))),
             ),
             SizedBox(
               width: size.width * .0386,
@@ -59,9 +70,9 @@ class BusCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 color: const Color(0xffFC153B),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  "Manage",
+                  buttonTitle,
                   style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w400,

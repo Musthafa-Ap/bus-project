@@ -40,7 +40,9 @@ class MasterScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return BusCard();
+                return CommonCard(
+                  cardType: "bus",
+                );
               },
             ),
           )
